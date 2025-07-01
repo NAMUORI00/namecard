@@ -1,0 +1,1089 @@
+/* CSS 변수 정의 - 플랫 디자인 */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --warning-color: #f39c12;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --background: #ecf0f1;
+    --surface: #ffffff;
+    --border: #bdc3c7;
+    --shadow: none;
+    --radius: 0;
+    --transition: all 0.2s ease;
+}
+
+/* 다크 모드 변수 - 플랫 디자인 */
+[data-theme="dark"] {
+    --text-primary: #ecf0f1;
+    --text-secondary: #95a5a6;
+    --background: #2c3e50;
+    --surface: #34495e;
+    --border: #34495e;
+    --shadow: none;
+}
+
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+    transition: var(--transition);
+}
+
+/* 테마 토글 버튼 */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#theme-btn {
+    background: var(--primary-color);
+    border: none;
+    border-radius: var(--radius);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+#theme-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* 메인 컨테이너 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 프로필 섹션 - TreeDuck 자연 테마 + 움직이는 그래픽 */
+.profile-section {
+    text-align: center;
+    padding: 80px 0;
+    background: linear-gradient(135deg, 
+        #2D7D2E 0%,     /* 딥 포레스트 그린 */
+        #4A90E2 50%,    /* 덕 블루 */ 
+        #228B22 100%    /* 나뭇잎 그린 */
+    );
+    border-radius: var(--radius);
+    margin-bottom: 60px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* 움직이는 기하학적 도형들 */
+.profile-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 60% 20%, rgba(255,255,255,0.06) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.profile-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.03) 42%, rgba(255,255,255,0.03) 43%, transparent 45%),
+        linear-gradient(-45deg, transparent 40%, rgba(255,255,255,0.02) 42%, rgba(255,255,255,0.02) 43%, transparent 45%);
+    animation: movePattern 20s linear infinite;
+    z-index: 1;
+}
+
+/* 플로팅 도형들 */
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.shape.circle {
+    border-radius: 50%;
+}
+
+.shape.square {
+    border-radius: 0;
+}
+
+.shape.triangle {
+    width: 0;
+    height: 0;
+    background: transparent;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 26px solid rgba(255, 255, 255, 0.1);
+}
+
+.shape:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    top: 10%;
+    left: 10%;
+    animation: float1 8s ease-in-out infinite;
+}
+
+.shape:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    top: 20%;
+    right: 15%;
+    animation: float2 6s ease-in-out infinite;
+}
+
+.shape:nth-child(3) {
+    top: 60%;
+    left: 8%;
+    animation: float3 10s ease-in-out infinite;
+}
+
+.shape:nth-child(4) {
+    width: 80px;
+    height: 80px;
+    bottom: 15%;
+    right: 10%;
+    animation: float4 7s ease-in-out infinite;
+}
+
+.shape:nth-child(5) {
+    width: 30px;
+    height: 30px;
+    top: 70%;
+    left: 70%;
+    animation: float5 9s ease-in-out infinite;
+}
+
+@keyframes movePattern {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes float1 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    33% { transform: translateY(-15px) translateX(10px); }
+    66% { transform: translateY(10px) translateX(-5px); }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(360deg); }
+}
+
+@keyframes float4 {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.2) rotate(45deg); }
+}
+
+@keyframes float5 {
+    0%, 100% { transform: translateY(0px); opacity: 0.1; }
+    50% { transform: translateY(-30px); opacity: 0.3; }
+}
+
+/* 디지털 바이너리 배경 */
+.binary-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.binary-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent 0px,
+        transparent 40px,
+        rgba(255, 255, 255, 0.03) 41px,
+        rgba(255, 255, 255, 0.03) 42px
+    );
+    animation: binaryRain 8s linear infinite;
+}
+
+.binary-rain::before {
+    content: "010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.2;
+    color: rgba(255, 255, 255, 0.1);
+    letter-spacing: 8px;
+    animation: binaryFlow 12s linear infinite;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.binary-rain::after {
+    content: "1010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101";
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 150%;
+    height: 150%;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.08);
+    letter-spacing: 6px;
+    animation: binaryFlow 15s linear infinite reverse;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+@keyframes binaryRain {
+    0% { transform: translateX(-50px); }
+    100% { transform: translateX(50px); }
+}
+
+@keyframes binaryFlow {
+    0% { transform: translateY(-100%) rotate(0deg); }
+    100% { transform: translateY(100%) rotate(360deg); }
+}
+
+/* 디지털 글리치 효과 */
+.profile-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 40%, rgba(45, 125, 46, 0.03) 42%, rgba(45, 125, 46, 0.03) 43%, transparent 45%),
+        linear-gradient(-45deg, transparent 40%, rgba(74, 144, 226, 0.02) 42%, rgba(74, 144, 226, 0.02) 43%, transparent 45%),
+        radial-gradient(circle at 20% 30%, rgba(45, 125, 46, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(74, 144, 226, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 60% 50%, rgba(139, 69, 19, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 30% 80%, rgba(34, 139, 34, 0.05) 0%, transparent 45%);
+    animation: digitalGlitch 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes digitalGlitch {
+    0%, 100% { 
+        opacity: 1;
+        filter: hue-rotate(0deg);
+    }
+    25% { 
+        opacity: 0.9;
+        filter: hue-rotate(90deg);
+    }
+    50% { 
+        opacity: 1;
+        filter: hue-rotate(180deg);
+    }
+    75% { 
+        opacity: 0.95;
+        filter: hue-rotate(270deg);
+    }
+}
+
+/* 추가 디지털 파티클 효과 */
+.profile-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 20% 30%, rgba(45, 125, 46, 0.4), transparent),
+        radial-gradient(1px 1px at 40% 70%, rgba(74, 144, 226, 0.3), transparent),
+        radial-gradient(1px 1px at 90% 40%, rgba(34, 139, 34, 0.3), transparent),
+        radial-gradient(1px 1px at 60% 10%, rgba(45, 125, 46, 0.3), transparent),
+        radial-gradient(1px 1px at 10% 80%, rgba(74, 144, 226, 0.3), transparent);
+    animation: digitalParticles 8s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes digitalParticles {
+    0% { 
+        opacity: 0;
+        transform: scale(0);
+    }
+    20% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    80% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% { 
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+/* 네온 라인 효과 */
+.binary-background::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 120%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(45, 125, 46, 0.6), 
+        rgba(45, 125, 46, 0.8), 
+        rgba(45, 125, 46, 0.6), 
+        transparent
+    );
+    animation: neonScan 6s ease-in-out infinite;
+    z-index: 2;
+}
+
+.binary-background::after {
+    content: '';
+    position: absolute;
+    top: 70%;
+    left: -10%;
+    width: 120%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(74, 144, 226, 0.4), 
+        rgba(74, 144, 226, 0.6), 
+        rgba(74, 144, 226, 0.4), 
+        transparent
+    );
+    animation: neonScan 8s ease-in-out infinite reverse;
+    z-index: 2;
+}
+
+@keyframes neonScan {
+    0%, 100% { 
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% { 
+        transform: translateX(100%);
+        opacity: 1;
+    }
+}
+
+/* 나뭇잎 떨어지는 애니메이션 */
+.falling-leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.leaf {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #8B4513;
+    border-radius: 0 100% 0 100%;
+    transform-origin: center;
+    opacity: 0.8;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.leaf::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 6px;
+    background: #654321;
+    transform: translateX(-50%);
+}
+
+/* 각 나뭇잎별 개별 설정 */
+.leaf-1 {
+    background: #8B4513; /* 갈색 */
+    left: 15%;
+    animation: leafFall1 8s infinite;
+    animation-delay: 0s;
+}
+
+.leaf-2 {
+    background: #228B22; /* 초록 */
+    left: 30%;
+    width: 10px;
+    height: 10px;
+    animation: leafFall2 10s infinite;
+    animation-delay: 2s;
+}
+
+.leaf-3 {
+    background: #DAA520; /* 노랑 */
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    animation: leafFall3 7s infinite;
+    animation-delay: 4s;
+}
+
+.leaf-4 {
+    background: #8B4513; /* 갈색 */
+    left: 70%;
+    animation: leafFall4 9s infinite;
+    animation-delay: 1s;
+}
+
+.leaf-5 {
+    background: #228B22; /* 초록 */
+    left: 85%;
+    width: 11px;
+    height: 11px;
+    animation: leafFall5 11s infinite;
+    animation-delay: 5s;
+}
+
+.leaf-6 {
+    background: #DAA520; /* 노랑 */
+    left: 40%;
+    width: 9px;
+    height: 9px;
+    animation: leafFall6 6s infinite;
+    animation-delay: 3s;
+}
+
+/* 나뭇잎 떨어지는 애니메이션들 */
+@keyframes leafFall1 {
+    0% {
+        transform: translateY(-20px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(250px) translateX(-20px) rotate(180deg);
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(520px) translateX(10px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes leafFall2 {
+    0% {
+        transform: translateY(-20px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    40% {
+        transform: translateY(200px) translateX(15px) rotate(90deg);
+    }
+    70% {
+        transform: translateY(350px) translateX(-10px) rotate(270deg);
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(520px) translateX(5px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes leafFall3 {
+    0% {
+        transform: translateY(-20px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    30% {
+        transform: translateY(150px) translateX(-25px) rotate(120deg);
+    }
+    60% {
+        transform: translateY(300px) translateX(20px) rotate(240deg);
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(520px) translateX(-15px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes leafFall4 {
+    0% {
+        transform: translateY(-20px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    45% {
+        transform: translateY(220px) translateX(10px) rotate(160deg);
+    }
+    75% {
+        transform: translateY(380px) translateX(-15px) rotate(300deg);
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(520px) translateX(8px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes leafFall5 {
+    0% {
+        transform: translateY(-20px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    35% {
+        transform: translateY(180px) translateX(-18px) rotate(140deg);
+    }
+    65% {
+        transform: translateY(320px) translateX(12px) rotate(280deg);
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(520px) translateX(-8px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes leafFall6 {
+    0% {
+        transform: translateY(-20px) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    55% {
+        transform: translateY(270px) translateX(22px) rotate(200deg);
+    }
+    80% {
+        transform: translateY(420px) translateX(-12px) rotate(320deg);
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(520px) translateX(15px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.profile-image {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+}
+
+/* 프로필 이미지 주변을 도는 작은 오리 */
+.profile-image::after {
+    content: '🦆';
+    position: absolute;
+    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -8px;
+    transform-origin: 0 0;
+    animation: duckWalk 15s linear infinite;
+    z-index: 10;
+    pointer-events: none;
+}
+
+@keyframes duckWalk {
+    0% {
+        transform: rotate(0deg) translateX(85px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(85px) rotate(-360deg);
+    }
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.profile-image img:hover {
+    transform: translateY(-5px);
+}
+
+.profile-info {
+    position: relative;
+    z-index: 2;
+}
+
+.name {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 10px;
+    text-shadow: none;
+    letter-spacing: 2px;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+.description {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+/* 섹션 공통 스타일 - 플랫 디자인 */
+section {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--border);
+    transition: var(--transition);
+    position: relative;
+    z-index: 5;
+}
+
+section:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+section h3::before {
+    content: '';
+    width: 4px;
+    height: 25px;
+    background: var(--primary-color);
+    border-radius: var(--radius);
+}
+
+/* 연락처 섹션 */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: var(--background);
+    border-radius: var(--radius);
+    border: 2px solid var(--border);
+    transition: var(--transition);
+}
+
+.contact-item:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.contact-item:hover i {
+    color: white;
+}
+
+.contact-item span {
+    font-weight: 500;
+}
+
+/* 소셜 링크 */
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    background: var(--background);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: var(--transition);
+    font-weight: 400;
+}
+
+.social-links a:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+}
+
+.social-links a i {
+    font-size: 1.5rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* 스킬 섹션 */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.skill-category h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-category h4::before {
+    content: '▶';
+    color: var(--secondary-color);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: var(--transition);
+    cursor: default;
+    border: 2px solid var(--primary-color);
+}
+
+.skill-tag:hover {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* 프로젝트 섹션 */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--background);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: var(--primary-color);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.project-card:hover::before {
+    background: var(--secondary-color);
+}
+
+.project-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.project-card p {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.project-tech span {
+    background: var(--surface);
+    color: var(--text-secondary);
+    padding: 6px 14px;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    border: 2px solid var(--border);
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-links a {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.project-links a:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+
+/* 푸터 */
+footer {
+    text-align: center;
+    padding: 40px 20px 20px;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .profile-section {
+        padding: 40px 20px;
+    }
+    
+    .name {
+        font-size: 2rem;
+    }
+    
+    .title {
+        font-size: 1.1rem;
+    }
+    
+    .description {
+        font-size: 1rem;
+    }
+    
+    section {
+        padding: 25px 20px;
+    }
+    
+    section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-grid,
+    .social-links,
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+    }
+    
+    #theme-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-image img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .name {
+        font-size: 1.8rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        padding: 20px;
+    }
+}
+
+/* 접근성 개선 - 모션 감소 설정 */
+@media (prefers-reduced-motion: reduce) {
+    .leaf,
+    .profile-image::before,
+    .profile-image::after,
+    .floating-shapes .shape,
+    .binary-rain,
+    .profile-section::before,
+    .profile-section::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+    
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 포커스 스타일 */
+button:focus,
+a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}

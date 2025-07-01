@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>namuori00 - 개발자 명함</title>
+    <meta name="description" content="나무오리의 디지털 명함입니다.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="theme-btn" aria-label="테마 변경">
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <div class="container">
+        <header class="profile-section">
+            <!-- 디지털 바이너리 배경 -->
+            <div class="binary-background">
+                <div class="binary-rain"></div>
+            </div>
+
+            <!-- 나뭇잎 떨어지는 애니메이션 -->
+            <div class="falling-leaves">
+                <div class="leaf leaf-1"></div>
+                <div class="leaf leaf-2"></div>
+                <div class="leaf leaf-3"></div>
+                <div class="leaf leaf-4"></div>
+                <div class="leaf leaf-5"></div>
+                <div class="leaf leaf-6"></div>
+            </div>
+            
+            <!-- 움직이는 기하학적 도형들 -->
+            <div class="floating-shapes">
+                <div class="shape circle"></div>
+                <div class="shape square"></div>
+                <div class="shape triangle"></div>
+                <div class="shape circle"></div>
+                <div class="shape square"></div>
+            </div>
+            
+            <div class="profile-image">
+                <img src="https://github.com/NAMUORI00.png" alt="namuori00 프로필 사진">
+            </div>
+            <div class="profile-info">
+                <h1 class="name">김유석 (KIM YUSEOK)</h1>
+                <h2 class="title">Developer & AI Enthusiast</h2>
+                <p class="description">
+                    성장하는 개발자로서 AI/ML과 웹 개발에 관심이 많습니다. 
+                    디지털 지식 정리와 오픈소스 활동을 통해 지속적으로 내 자신을 발전시키고 있습니다.
+                </p>
+            </div>
+        </header>
+
+        <section class="contact-section">
+            <h3>연락처</h3>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>admin@namuori.net</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>rladbtjr0227@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>대한민국</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-section">
+            <h3>소셜 링크</h3>
+            <div class="social-links">
+                <a href="https://github.com/NAMUORI00" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://blog.namuori.net" target="_blank" rel="noopener">
+                    <i class="fas fa-blog"></i>
+                    <span>Blog</span>
+                </a>
+                <a href="mailto:admin@namuori.net">
+                    <i class="fas fa-envelope"></i>
+                    <span>Main Email</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <h3>기술 스택</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C#</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Web Development</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">JPA</span>
+                        <span class="skill-tag">MySQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>AI & Tools</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">IntelliJ IDEA</span>
+                        <span class="skill-tag">Generative AI</span>
+                        <span class="skill-tag">Local LLM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section">
+            <h3>주요 프로젝트</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4>CRUD Community Platform</h4>
+                    <p>Java Spring Boot와 JPA를 활용한 커뮤니티 플랫폼</p>
+                    <div class="project-tech">
+                        <span>Java</span>
+                        <span>Spring Boot</span>
+                        <span>JPA</span>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/NAMUORI00" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h4>Good Price Jeju</h4>
+                    <p>공공데이터를 활용한 제주도 가격 정보 시각화</p>
+                    <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>Public Data API</span>
+                        <span>Data Visualization</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/NAMUORI00" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Music Splitter Project</h4>
+                    <p>음악 분리 및 처리를 위한 툤</p>
+                    <div class="project-tech">
+                        <span>Java</span>
+                        <span>Python</span>
+                        <span>Bootstrap</span>
+                        <span>Audio Processing</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/NAMUORI00" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>JavaScript Quiz Application</h4>
+                    <p>인터랙티브 퀴즈 애플리케이션</p>
+                    <div class="project-tech">
+                        <span>JavaScript</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/NAMUORI00" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 namuori00. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
